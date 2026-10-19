@@ -1,0 +1,304 @@
+/**
+ * CineMatch - Mood-Adaptive CSS Variables & Keyframe Animations
+ * Provides 0.5s smooth transitions and drives mood-specific styles across the entire app.
+ */
+
+:root,
+[data-mood="default"] {
+  --theme-bg: #08090d;
+  --theme-bg-gradient: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.14) 0%, transparent 60%), radial-gradient(circle at 100% 100%, rgba(168, 85, 247, 0.10) 0%, transparent 50%);
+  --theme-surface: rgba(15, 23, 42, 0.85);
+  --theme-surface-hover: rgba(30, 41, 59, 0.95);
+  --theme-border: rgba(255, 255, 255, 0.10);
+  --theme-nav-bg: rgba(8, 9, 13, 0.85);
+  --theme-text-primary: #f8fafc;
+  --theme-text-secondary: #94a3b8;
+  --theme-text-muted: #64748b;
+  --theme-accent: #8b5cf6;
+  --theme-accent-sec: #6366f1;
+  --theme-accent-text: #ffffff;
+  --theme-chip-bg: rgba(139, 92, 246, 0.15);
+  --theme-chip-border: rgba(139, 92, 246, 0.35);
+  --theme-chip-text: #ddd6fe;
+  --theme-match-ring: #10b981;
+  --theme-card-radius: 20px;
+  --theme-title-font: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --theme-like-pulse: rgba(139, 92, 246, 0.4);
+}
+
+[data-mood="funny"] {
+  --theme-bg: #fff4d6;
+  --theme-bg-gradient: radial-gradient(circle at 50% 0%, rgba(255, 183, 3, 0.25) 0%, transparent 60%), radial-gradient(circle at 100% 100%, rgba(239, 71, 111, 0.15) 0%, transparent 50%);
+  --theme-surface: #ffffff;
+  --theme-surface-hover: #fffdf7;
+  --theme-border: #f2dc96;
+  --theme-nav-bg: rgba(255, 244, 214, 0.94);
+  --theme-text-primary: #2d2204;
+  --theme-text-secondary: #5e4a1a;
+  --theme-text-muted: #8a7139;
+  --theme-accent: #ef476f;
+  --theme-accent-sec: #ffb703;
+  --theme-accent-text: #ffffff;
+  --theme-chip-bg: #fff0d1;
+  --theme-chip-border: #ffd166;
+  --theme-chip-text: #b33504;
+  --theme-match-ring: #ef476f;
+  --theme-card-radius: 28px;
+  --theme-title-font: 'Quicksand', 'Nunito', system-ui, sans-serif;
+  --theme-like-pulse: rgba(239, 71, 111, 0.45);
+}
+
+[data-mood="thrilling"] {
+  --theme-bg: #150808;
+  --theme-bg-gradient: radial-gradient(circle at 50% 0%, rgba(230, 57, 70, 0.28) 0%, transparent 65%), radial-gradient(circle at 0% 100%, rgba(255, 138, 92, 0.18) 0%, transparent 50%);
+  --theme-surface: #1e0d0d;
+  --theme-surface-hover: #2a1313;
+  --theme-border: #4d191d;
+  --theme-nav-bg: rgba(21, 8, 8, 0.92);
+  --theme-text-primary: #fef2f2;
+  --theme-text-secondary: #fca5a5;
+  --theme-text-muted: #b91c1c;
+  --theme-accent: #e63946;
+  --theme-accent-sec: #ff8a5c;
+  --theme-accent-text: #ffffff;
+  --theme-chip-bg: rgba(230, 57, 70, 0.18);
+  --theme-chip-border: rgba(230, 57, 70, 0.45);
+  --theme-chip-text: #fecaca;
+  --theme-match-ring: #ff8a5c;
+  --theme-card-radius: 2px;
+  --theme-title-font: 'Impact', 'Arial Black', sans-serif;
+  --theme-like-pulse: rgba(230, 57, 70, 0.65);
+}
+
+[data-mood="romantic"] {
+  --theme-bg: #2a0f1d;
+  --theme-bg-gradient: radial-gradient(circle at 50% 0%, rgba(255, 122, 168, 0.22) 0%, transparent 60%), radial-gradient(circle at 100% 50%, rgba(255, 209, 224, 0.12) 0%, transparent 50%);
+  --theme-surface: #3b1629;
+  --theme-surface-hover: #4d1e36;
+  --theme-border: #6b274c;
+  --theme-nav-bg: rgba(42, 15, 29, 0.92);
+  --theme-text-primary: #fff1f5;
+  --theme-text-secondary: #ffd1e0;
+  --theme-text-muted: #f472b6;
+  --theme-accent: #ff7aa8;
+  --theme-accent-sec: #ffd1e0;
+  --theme-accent-text: #2a0f1d;
+  --theme-chip-bg: rgba(255, 122, 168, 0.18);
+  --theme-chip-border: rgba(255, 122, 168, 0.40);
+  --theme-chip-text: #ffe4ee;
+  --theme-match-ring: #ff7aa8;
+  --theme-card-radius: 16px;
+  --theme-title-font: 'Playfair Display', 'Georgia', serif;
+  --theme-like-pulse: rgba(255, 122, 168, 0.5);
+}
+
+[data-mood="thoughtful"] {
+  --theme-bg: #0f1b2d;
+  --theme-bg-gradient: radial-gradient(circle at 50% 0%, rgba(111, 168, 220, 0.20) 0%, transparent 65%), radial-gradient(circle at 0% 100%, rgba(207, 227, 245, 0.10) 0%, transparent 50%);
+  --theme-surface: #15243b;
+  --theme-surface-hover: #1c3150;
+  --theme-border: #274268;
+  --theme-nav-bg: rgba(15, 27, 45, 0.92);
+  --theme-text-primary: #f0f7ff;
+  --theme-text-secondary: #cfe3f5;
+  --theme-text-muted: #93c5fd;
+  --theme-accent: #6fa8dc;
+  --theme-accent-sec: #cfe3f5;
+  --theme-accent-text: #0a1320;
+  --theme-chip-bg: rgba(111, 168, 220, 0.18);
+  --theme-chip-border: rgba(111, 168, 220, 0.40);
+  --theme-chip-text: #dbeafe;
+  --theme-match-ring: #6fa8dc;
+  --theme-card-radius: 18px;
+  --theme-title-font: 'Merriweather', 'Georgia', serif;
+  --theme-like-pulse: rgba(111, 168, 220, 0.45);
+}
+
+[data-mood="dark"] {
+  --theme-bg: #0b0b10;
+  --theme-bg-gradient: radial-gradient(circle at 50% 0%, rgba(124, 92, 255, 0.16) 0%, transparent 60%);
+  --theme-surface: #14141d;
+  --theme-surface-hover: #1b1b26;
+  --theme-border: #272738;
+  --theme-nav-bg: rgba(11, 11, 16, 0.94);
+  --theme-text-primary: #f4f4f7;
+  --theme-text-secondary: #9d9db3;
+  --theme-text-muted: #686882;
+  --theme-accent: #7c5cff;
+  --theme-accent-sec: #a78bfa;
+  --theme-accent-text: #ffffff;
+  --theme-chip-bg: rgba(124, 92, 255, 0.16);
+  --theme-chip-border: rgba(124, 92, 255, 0.38);
+  --theme-chip-text: #ddd6fe;
+  --theme-match-ring: #7c5cff;
+  --theme-card-radius: 14px;
+  --theme-title-font: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --theme-like-pulse: rgba(124, 92, 255, 0.5);
+}
+
+[data-mood="feel-good"] {
+  --theme-bg: #f3fbe8;
+  --theme-bg-gradient: radial-gradient(circle at 50% 0%, rgba(123, 192, 67, 0.25) 0%, transparent 60%), radial-gradient(circle at 100% 100%, rgba(255, 159, 28, 0.18) 0%, transparent 50%);
+  --theme-surface: #ffffff;
+  --theme-surface-hover: #f9fef5;
+  --theme-border: #d0ebb8;
+  --theme-nav-bg: rgba(243, 251, 232, 0.94);
+  --theme-text-primary: #142908;
+  --theme-text-secondary: #3b5727;
+  --theme-text-muted: #5e8247;
+  --theme-accent: #7bc043;
+  --theme-accent-sec: #ff9f1c;
+  --theme-accent-text: #ffffff;
+  --theme-chip-bg: #eaf8de;
+  --theme-chip-border: #bee89e;
+  --theme-chip-text: #2b5e0e;
+  --theme-match-ring: #7bc043;
+  --theme-card-radius: 22px;
+  --theme-title-font: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --theme-like-pulse: rgba(123, 192, 67, 0.45);
+}
+
+/* Global 0.5s smooth transition for mood changes */
+[data-mood],
+[data-mood] body,
+.theme-container,
+.theme-card,
+.theme-navbar,
+.theme-modal,
+.theme-chip,
+.theme-btn {
+  transition:
+    background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+    border-radius 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Body Application */
+body {
+  background-color: var(--theme-bg) !important;
+  color: var(--theme-text-primary) !important;
+  background-image: var(--theme-bg-gradient) !important;
+  background-attachment: fixed !important;
+}
+
+/* Utility Classes */
+.theme-bg {
+  background-color: var(--theme-bg) !important;
+}
+
+.theme-surface {
+  background-color: var(--theme-surface) !important;
+  border-color: var(--theme-border) !important;
+  border-radius: var(--theme-card-radius) !important;
+  color: var(--theme-text-primary) !important;
+}
+
+.theme-card {
+  background-color: var(--theme-surface) !important;
+  border-color: var(--theme-border) !important;
+  border-radius: var(--theme-card-radius) !important;
+  color: var(--theme-text-primary) !important;
+}
+
+.theme-card:hover {
+  background-color: var(--theme-surface-hover) !important;
+}
+
+.theme-navbar {
+  background-color: var(--theme-nav-bg) !important;
+  border-color: var(--theme-border) !important;
+}
+
+.theme-title {
+  font-family: var(--theme-title-font) !important;
+}
+
+.theme-text {
+  color: var(--theme-text-primary) !important;
+}
+
+.theme-text-sec {
+  color: var(--theme-text-secondary) !important;
+}
+
+.theme-text-muted {
+  color: var(--theme-text-muted) !important;
+}
+
+.theme-border {
+  border-color: var(--theme-border) !important;
+}
+
+.theme-chip {
+  background-color: var(--theme-chip-bg) !important;
+  border-color: var(--theme-chip-border) !important;
+  color: var(--theme-chip-text) !important;
+  border-radius: calc(var(--theme-card-radius) * 0.55) !important;
+}
+
+.theme-btn-accent {
+  background: linear-gradient(135deg, var(--theme-accent), var(--theme-accent-sec)) !important;
+  color: var(--theme-accent-text) !important;
+  border-radius: var(--theme-card-radius) !important;
+}
+
+/* Mood-Specific Micro-Interactions */
+
+/* 1. Funny: Bouncy hover animations */
+[data-mood="funny"] .theme-card:hover {
+  transform: translateY(-6px) scale(1.01) rotate(-0.5deg);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* 2. Thrilling: Sharp 2px corners, condensed bold font, pulsing red edge on Like */
+[data-mood="thrilling"] .theme-card {
+  border-radius: 2px !important;
+}
+
+[data-mood="thrilling"] .like-pulse-edge {
+  position: relative;
+  animation: thrillingRedPulse 1.6s infinite;
+}
+
+@keyframes thrillingRedPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.75);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(230, 57, 70, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(230, 57, 70, 0);
+  }
+}
+
+/* 3. Romantic: Soft rounded cards, slow fades */
+[data-mood="romantic"] .theme-card {
+  box-shadow: 0 8px 30px rgba(42, 15, 29, 0.4);
+}
+
+/* 4. Dark: Film grain / subtle vignette */
+[data-mood="dark"] .poster-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+/* 5. Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  [data-mood],
+  [data-mood] *,
+  .theme-card,
+  .like-pulse-edge,
+  .floating-heart,
+  .confetti-particle {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transform: none !important;
+  }
+}

@@ -1,0 +1,56 @@
+# CineMatch Configuration
+
+app:
+  name: "CineMatch"
+  version: "0.1.0"
+  debug: true
+
+database:
+  url: "sqlite:///./cinematch.db"
+
+data:
+  movies_csv: "data/tmdb_5000_movies.csv"
+  credits_csv: "data/tmdb_5000_credits.csv"
+
+tmdb:
+  # Optional TMDB API key for fetching posters.
+  # If empty or not set in environment (TMDB_API_KEY), gradient placeholders are used.
+  api_key_env_var: "TMDB_API_KEY"
+  base_poster_url: "https://image.tmdb.org/t/p/w500"
+  use_gradient_fallback: true
+
+recency_decay:
+  # Exponential decay half-life in days for interaction history
+  half_life_days: 14.0
+  # Base interaction multipliers
+  interaction_weights:
+    like: 1.0
+    dislike: -1.0
+    rating_weight: 1.0 # scaled based on 1-5 or 1-10 rating relative to baseline
+    watched: 0.6
+    skip: -0.4
+
+ranking:
+  # Component weights for recommendation scoring (each normalized 0.0 - 1.0, sum = 1.0)
+  weights:
+    profile_similarity: 0.30
+    recent_behavior: 0.15
+    context_match: 0.35
+    collaborative_score: 0.10
+    quality_prior: 0.10
+
+  # Maximal Marginal Relevance (MMR) for diversity re-ranking
+  mmr:
+    enabled: true
+    # Trade-off between relevance and diversity: 1.0 is pure relevance, 0.0 is pure diversity
+    lambda_param: 0.7
+    top_k: 20
+    diversity_metric: "cosine"
+
+collaborative_filtering:
+  # Minimum total interactions required across the system before enabling CF
+  min_system_interactions: 20
+  # Minimum interactions per user to compute user-user similarity
+  min_user_interactions: 3
+  # Minimum overlapping movies between users
+  min_user_overlap: 2

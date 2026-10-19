@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+.pytest_cache/
+node_modules/
+dist/
+.env
+*.db
+*.sqlite3
+*.pkl
+backend/data/*.csv
+backend/data/movielens/
